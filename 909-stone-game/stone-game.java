@@ -1,34 +1,18 @@
 class Solution {
     
     public boolean stoneGame(int[] piles) {
-        int alice=0;
-        int bob=0;
-        int num=1;
-        int start=0;
-        int end=piles.length-1;
-        while(start<=end){
-            if(num%2!=0){
-             if(piles[start]>=piles[end]){
-                 alice+=piles[start];
-                 start++;
-             }
-             else{
-                 alice+=piles[end];
-                 end--;
-             }
+        int a=0;
+        int b=0;
+        int res=1,ln=piles.length;
+        for(int i=0;i<ln;i++){
+            if(res%2!=0){
+                a+=Math.max(piles[i],piles[ln-i-1]);
             }
             else{
-               if(piles[start]>=piles[end]){
-                 bob+=piles[end];
-                 end--;
-             }
-             else{
-                 alice+=piles[start];
-                 start++;
-             }
+                b+=Math.min(piles[i],piles[ln-i-1]);
             }
-            num++;
+            res++;
         }
-       return alice>bob;
+        return a>b;
     }
 }
