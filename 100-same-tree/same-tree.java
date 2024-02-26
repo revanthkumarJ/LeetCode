@@ -18,8 +18,6 @@ class Solution {
         
         if(p==null || q==null)
         return p==q;
-        else if(p==null && q==null)
-        return true;
         if(p.val!=q.val)
         return false;
         return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
