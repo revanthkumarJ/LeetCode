@@ -7,15 +7,16 @@ class Solution {
             o++;
         }
         o--;
-        String r="1";
+        StringBuilder r=new StringBuilder("1");
         for(int i=1;i<(s.length()-o);i++)
         {
-            r=0+r;
+            r.append(0);
         }
         for(int i=r.length();i<s.length();i++)
         {
-            r=1+r;
+            r.append(1);
         }
-        return r;
+        r.reverse();
+        return r.toString();
     }
 }
