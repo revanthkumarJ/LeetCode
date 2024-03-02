@@ -8,11 +8,8 @@ var sortedSquares = function(nums) {
     let ind=high;
     while(low<=high)
     {
-        if(nums[low]<0)
-        nums[low]=-nums[low]
-        if(nums[high]<0)
-        nums[high]=-nums[high]
-        if(nums[low]>nums[high])
+        
+        if(Math.abs(nums[low])>Math.abs(nums[high]))
         {
             array[ind]=(nums[low]*nums[low]);
             low++;
