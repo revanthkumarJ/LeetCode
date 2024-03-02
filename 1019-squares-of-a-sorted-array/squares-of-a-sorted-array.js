@@ -3,8 +3,9 @@
  * @return {number[]}
  */
 var sortedSquares = function(nums) {
-    let array=[];
+    let array=new Array(nums.length);
     let low=0,high=nums.length-1;
+    let ind=high;
     while(low<=high)
     {
         if(nums[low]<0)
@@ -13,14 +14,15 @@ var sortedSquares = function(nums) {
         nums[high]=-nums[high]
         if(nums[low]>nums[high])
         {
-            array.unshift(nums[low]*nums[low]);
+            array[ind]=(nums[low]*nums[low]);
             low++;
         }
         else
         {
-            array.unshift(nums[high]*nums[high]);
+            array[ind]=(nums[high]*nums[high]);
             high--;
         }
+        ind--;
     }
     return array;
 };
