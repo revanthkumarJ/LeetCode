@@ -3,16 +3,16 @@ public class Solution {
     public boolean hasCycle(ListNode head) {
         if(head==null)
         return false;
-        ListNode temp=head;
-        ListNode next=temp.next;
-        while(temp!=null && next!=null)
+        ListNode slow=head;
+        ListNode fast=head.next;
+        while(slow!=null && fast!=null)
         {
-            if(temp==next)
+            if(slow==fast)
             return true;
-            temp=temp.next;
-            if(next.next==null)
+            slow=slow.next;
+            if(fast.next==null)
             return false;
-            next=next.next.next;
+            fast=fast.next.next;
         }
         return false;
     }
