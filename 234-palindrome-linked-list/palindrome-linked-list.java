@@ -9,24 +9,24 @@
  * }
  */
 class Solution {
-    public boolean isPalindrome(String r)
-    {
-        if(r.length()<=1)
-        return true;
-        for(int i=0;i<r.length()/2;i++)
-        {
-            if(r.charAt(i)!=r.charAt(r.length()-1-i))
-            return false;
-        }
-        return true;
-    }
     public boolean isPalindrome(ListNode head) {
-        String r="";
-        while(head!=null)
+        ListNode slow=head,fast=head;
+        Stack<Integer> s=new Stack<>();
+        while(fast!=null && fast.next!=null)
         {
-            r=r+head.val;
-            head=head.next;
+            s.push(slow.val);
+            slow=slow.next;
+            fast=fast.next.next;
         }
-        return isPalindrome(r);
+        if(fast!=null)
+        slow=slow.next;
+        while(slow!=null)
+        {
+            if(slow.val!=s.pop())
+            return false;
+            slow=slow.next;
+        }
+        return true;
+
     }
 }
