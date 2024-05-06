@@ -8,13 +8,7 @@ class Solution {
         {
             for(int j=0;j<c;j++)
             {
-                try{
-                    res[i][j]=mat[a][b];
-                }
-                catch(Exception e)
-                {
-                    return mat;
-                }
+                res[i][j]=mat[a][b];
                 b++;
                 if(b==n)
                 {
