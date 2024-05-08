@@ -19,8 +19,8 @@ class Solution {
     {
         if(root!=null)
         {
-            res.add(root.val);
             add(root.left);
+            res.add(root.val);
         add(root.right);
         }
         
