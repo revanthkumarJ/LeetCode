@@ -1,29 +1,14 @@
 class Solution {
     public int minBitFlips(int start, int goal) {
-        String a=Integer.toBinaryString(start);
-        String b=Integer.toBinaryString(goal);
-        System.out.println(a+" "+b);
-        int i=a.length()-1,j=b.length()-1;
-        int t=0;
-        while(i>=0 && j>=0)
-        {
-            if(a.charAt(i)!=b.charAt(j))
-            t++;
-            i--;
-            j--;
+        if (start == goal) return 0 ;
+        int maxi = Math.max(start, goal) ;
+        int ans = 0 ;
+        while (maxi!=0){
+            if ((start & 1) != (goal & 1)) ans++ ;
+            start >>= 1 ;
+            goal >>= 1 ;
+            maxi >>= 1 ;
         }
-        while(i>=0)
-        {
-            if(a.charAt(i)=='1')
-            t++;
-            i--;
-        }
-        while(j>=0)
-        {
-            if(b.charAt(j)=='1')
-            t++;
-            j--;
-        }
-        return t;
+        return ans ;
     }
 }
